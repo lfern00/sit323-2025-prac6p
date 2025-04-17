@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: node-web
+  name: node-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-web
+  template:
+    metadata:
+      labels:
+        app: node-web
+    spec:
+      containers:
+      - image: lfern00/week5
+        name: week5
+        ports:
+        - containerPort: 3040
+          name: mynode
